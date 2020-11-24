@@ -1,0 +1,40 @@
+body {
+  background: #C0C0C0;
+  margin: 0;
+  padding: 0;
+}
+
+.dropbtn {
+  
+  margin-top: 5%;
+  font-weight: 900;
+}
+
+.menu {
+  display: block;
+  text-align: center;
+}
+
+button{
+  width: 300px;
+  height: 30px;
+  color: #062170;
+  font-weight: 400;
+  background: white;
+  border-radius: 10px 10px;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+    padding-top: 4px;
+    padding-bottom: 3px;
+   }
+
+button:hover{
+  background-color: #062170;
+  color: white;
+}
+
+button:active{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
