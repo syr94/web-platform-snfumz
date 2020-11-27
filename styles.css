@@ -1,11 +1,71 @@
 body {
-  background: #C0C0C0;
+  background: #c0c0c0;
   margin: 0;
   padding: 0;
 }
 
+button {
+  width: 300px;
+  height: 30px;
+  color: #062170;
+  font-weight: 400;
+  background: white;
+  border-radius: 10px 10px;
+  display: flex;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры */
+  padding-top: 4px;
+  padding-bottom: 3px;
+  display: none;
+}
+
+button:hover {
+  background-color: #062170;
+  color: white;
+}
+
+button:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#trashElement,
+#storeElement,
+#likeElement,
+#petElement,
+#movieElement {
+  position: relative;
+  left: 10px;
+  top: 2px;
+}
+
+.sign_1 {
+  position: relative;
+  left: 140px;
+}
+
+.sign_2 {
+  position: relative;
+  left: 125px;
+}
+
+.sign_3 {
+  position: relative;
+  left: 70px;
+}
+
+.sign_4 {
+  position: relative;
+  left: 147px;
+}
+
+.sign_5 {
+  position: relative;
+  left: 120px;
+}
 .dropbtn {
-  
   margin-top: 5%;
   font-weight: 900;
 }
@@ -13,28 +73,4 @@ body {
 .menu {
   display: block;
   text-align: center;
-}
-
-button{
-  width: 300px;
-  height: 30px;
-  color: #062170;
-  font-weight: 400;
-  background: white;
-  border-radius: 10px 10px;
-}
-
-li {
-    list-style-type: none; /* Убираем маркеры */
-    padding-top: 4px;
-    padding-bottom: 3px;
-   }
-
-button:hover{
-  background-color: #062170;
-  color: white;
-}
-
-button:active{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }

@@ -2,19 +2,33 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<script src="script.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="styles.css"> 
 </head>
 
 <body>
-	<div class="menu">
-		<ul><button class="dropbtn">Menu</button>
-			<li><button>throw out the trash</button></li>
-			<li><button>go to the store</button></li>
-			<li><button>like the video</button></li>
-			<li><button>pet the cat</button></li>
-			<li><button>to see a movie</button></li>
-			</ul>
+	<div class="menu" >
+		<ul>
+			<button class="dropbtn" id = "mainButton" onclick="initializationOfList()">Выберите опцию</button>
+			<li>
+				<button onclick="toDo(0); hideElements();"><div id = "trashElement" ></div>
+					<img class="sign_1" id="sign_1">
+				</button>
+			</li>
+			<li>
+				<button onclick="toDo(1); hideElements();"><div id = "storeElement" ></div>
+					<img class="sign_2" id="sign_2"></button></button></li>
+			<li>
+				<button onclick="toDo(2); hideElements();"><div  id = "likeElement"></div>
+					<img class="sign_3" id="sign_3"></button></button></li>
+			<li>
+				<button onclick="toDo(3); hideElements();"><div  id = "petElement"></div>
+					<img class="sign_4" id="sign_4"></button></button></li>
+			<li>
+				<button  onclick="toDo(4); hideElements();"><div id = "movieElement"></div>
+					<img class="sign_5" id="sign_5"></button></button></li>
+		</ul>
+			<script src="script.js"></script>
 	</div>
 </body>
 
