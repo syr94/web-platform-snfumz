@@ -3,33 +3,30 @@ let url =
 let menu = document.getElementById("mainButton");
 let toDoList = [];
 let hidden = true;
+let toDojson = [];
 
-var hideElements = () => {
-  var allElements = document.getElementsByTagName("li");
-  for (var i = 0; i < allElements.length; i++) {
+let hideElements = () => {
+  let allElements = document.getElementsByTagName("li");
+  for (let i = 0; i < allElements.length; i++) {
     allElements[i].style.display = "none";
   }
 };
 
-var showElements = () => {
-  var allElements = document.getElementsByTagName("li");
-  for (var i = 0; i < allElements.length; i++) {
+let showElements = () => {
+  let allElements = document.getElementsByTagName("li");
+  for (let i = 0; i < allElements.length; i++) {
     allElements[i].style.display = "block";
   }
 };
 
 let toDo = i => {
-  fetch(url, { method: "GET" })
-    .then(response => response.json())
-    .then(responseText => {
-      if (JSON.stringify(responseText[i].completed) == "false") {
-        menu.innerText = "Не забудь " + responseText[i].label;
-      } else {
-        menu.innerText = "Дело сделано!";
-      }
-      hideElements();
-      hidden = true;
-    });
+  if (toDojson[i].completed == "false") {
+    menu.innerText = "Не забудь " + toDojson[i].label;
+  } else {
+    menu.innerText = "Дело сделано!";
+  }
+  hideElements();
+  hidden = true;
 };
 
 let initializationOfList = () => {
@@ -42,62 +39,50 @@ let initializationOfList = () => {
     hidden = true;
   }
 
-  fetch(url, { method: "GET" })
-    .then(response => response.json())
-    .then(responseText => {
-      document.getElementById("trashElement").innerText = JSON.stringify(
-        responseText[0].label
-      )
-        .replace('"', "")
-        .replace('"', "");
-      document.getElementById("sign_1").src =
-        responseText[0].completed == true
-          ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
-          : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
+  document.getElementById("trashElement").innerText = toDojson[0].label
+    .replace('"', "")
+    .replace('"', "");
 
-      document.getElementById("storeElement").innerText = JSON.stringify(
-        responseText[1].label
-      )
-        .replace('"', "")
-        .replace('"', "");
-      document.getElementById("sign_2").src =
-        responseText[1].completed == true
-          ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
-          : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
+  document.getElementById("sign_1").src =
+    toDojson[0].completed == true
+      ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
+      : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
 
-      document.getElementById("likeElement").innerText = JSON.stringify(
-        responseText[2].label
-      )
-        .replace('"', "")
-        .replace('"', "");
-      document.getElementById("sign_3").src =
-        responseText[2].completed == true
-          ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
-          : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
+  document.getElementById("storeElement").innerText = toDojson[1].label
+    .replace('"', "")
+    .replace('"', "");
+  document.getElementById("sign_2").src =
+    toDojson[1].completed == true
+      ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
+      : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
+  document.getElementById("likeElement").innerText = toDojson[2].label
+    .replace('"', "")
+    .replace('"', "");
+  document.getElementById("sign_3").src =
+    toDojson[2].completed == true
+      ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
+      : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
 
-      document.getElementById("petElement").innerText = JSON.stringify(
-        responseText[3].label
-      )
-        .replace('"', "")
-        .replace('"', "");
-      document.getElementById("sign_4").src =
-        responseText[3].completed == true
-          ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
-          : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
+  document.getElementById("petElement").innerText = toDojson[3].label
 
-      document.getElementById("movieElement").innerText = JSON.stringify(
-        responseText[4].label
-      )
-        .replace('"', "")
-        .replace('"', "");
-      document.getElementById("sign_5").src =
-        responseText[4].completed == true
-          ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
-          : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
-    });
+    .replace('"', "")
+    .replace('"', "");
+  document.getElementById("sign_4").src =
+    toDojson[3].completed == true
+      ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
+      : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
 
-  //if selected == false {
-  //	hide allElements();
-  //	menu.innerText = "Выбериет опцию";
-  //	}
+  document.getElementById("movieElement").innerText = toDojson[4].label
+    .replace('"', "")
+    .replace('"', "");
+  document.getElementById("sign_5").src =
+    toDojson[4].completed == true
+      ? "https://i.ibb.co/JH900hp/Tick-Mark-icon-icons-com-69146.png"
+      : "https://i.ibb.co/QF1HqBB/Close-Icon-Dark-icon-icons-com-69143.png";
 };
+
+fetch(url, { method: "GET" })
+  .then(response => response.json())
+  .then(responseText => {
+    toDojson = responseText;
+  });
